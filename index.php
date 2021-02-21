@@ -19,7 +19,15 @@
                                 ?>
                             </div>
                             <div class="meta">
-                                    <p>Postado por <?php the_author_posts_link();?> em <a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a> </p>
+                                    <p>Postado por <?php the_author_posts_link();?> em <a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
+                                    <?php if( has_category() ): ?>
+                                    Categorias: <span> <?php the_category('');?></span>
+                                    <br />
+                                    <?php endif; ?>
+                                    <?php if( has_tag() ): ?>
+                                        Tags: <span> <?php the_tags(", ', '");?></span>
+                                    <?php endif; ?>
+                                </p>
                             </div>
                             <div class="content"><?php the_excerpt();?></div>
                         </article>        
